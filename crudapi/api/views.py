@@ -50,7 +50,7 @@ class StudentAPIView(APIView):
 
     def patch(self, request, id=None):
         student_serializer = StudentSerializer(
-            instance=self.get_queryset(id=id), data=request.data
+            instance=self.get_queryset(id=id), data=request.data, partial=True
         )
         if student_serializer.is_valid():
             updated_student_data = student_serializer.save()
